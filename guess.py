@@ -9,12 +9,11 @@ name = input("May I ask your name? ")
 with open("score_list.txt", "r") as score_file:
     score_list = json.loads(score_file.read())
 
+new_score_list = sorted(score_list, key=lambda k:k["attempts"])[:3]
 print("Top scores: ")
-
-for score_dict in score_list:
-   print(str(score_dict["attempts"]) + " Attempts, Date: " + str(score_dict.get("date")) + " Name:", str(score_dict.get("name")),
-   " The secret number was:", str(score_dict.get("secret number")), " Missed numbers: " + str(score_dict.get("wrong_guesses")))
-
+for score_dict in new_score_list:
+    print(str(score_dict["attempts"]) + " Attempts, Date: " + str(score_dict.get("date")) + " Name:", str(score_dict.get("name")),
+    " The secret number was:", str(score_dict.get("secret number")), " Missed numbers: " + str(score_dict.get("wrong_guesses")))
 
 wrong_guess = []
 
@@ -35,6 +34,9 @@ while True:
     elif guess < secret:
         print("Your guess is not correct... try something bigger")
         wrong_guess.append(guess)
+
+
+
 
 
 
