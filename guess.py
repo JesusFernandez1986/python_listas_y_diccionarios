@@ -25,7 +25,7 @@ while True:  #bucle que comprueba si hemos acertado el numero o no
         score_list.append({"attempts": attempts, "date": str(fecha.ctime()), "name": name, "secret number": secret, "wrong_guesses": wrong_guess}) #añadimos un diccionario dentro de nuestra lista
         with open("score_list.txt", "w") as score_file: #abrimos el archivo con nuestra lista en modo escritura
             score_file.write(json.dumps(score_list))
-        print("You've guessed it - congratulations! It's number " + str(secret))
+        print("You have guessed it - It's number " + str(secret))
         print("Attempts needed: " + str(attempts))
         break
     elif guess > secret:
